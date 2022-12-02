@@ -4,8 +4,12 @@ import styles from '../styles/styles.module.css';
 
 import { ProductContext } from './ProductCard';
 
-export const ProductTitle: React.FC = () => {
+type Props = {
+  className?: string;
+};
+
+export const ProductTitle: React.FC<Props> = ({ className }) => {
   const { product } = useContext(ProductContext);
 
-  return <span className={styles.productDescription}>{product.title}</span>;
+  return <span className={`${styles.productDescription} ${className}`}>{product.title}</span>;
 };
