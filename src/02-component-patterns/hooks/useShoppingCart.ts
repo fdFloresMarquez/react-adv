@@ -7,31 +7,16 @@ export const useShoppingCart = () => {
 
   const onProductCardChange = ({ count, product }: onProductChangeArgs) => {
     setShoppingCart((current) => {
-      const productInCart: ProductInCart = current[product.id] || { ...product, count: 0 };
+      if (count < 1) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [product.id]: toDelete, ...rest } = current;
 
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-
+        return rest;
+      } else
         return {
           ...current,
-          [product.id]: productInCart,
+          [product.id]: { ...product, count },
         };
-      }
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { [product.id]: toDelete, ...rest } = current;
-
-      return rest;
-
-      // if (count < 1) {
-      //   const { [product.id]: toDelete, ...rest } = current;
-
-      //   return rest;
-      // } else
-      //   return {
-      //     ...current,
-      //     [product.id]: { ...product, count },
-      //   };
     });
   };
 
