@@ -9,3 +9,12 @@ export type ProductContextProps = {
   increaseBy: (value: number) => void;
   product: Product;
 };
+
+export type onProductChangeArgs = {
+  count: number;
+  product: Product;
+};
+
+export interface ProductInCart extends Product {
+  count: number;
+}

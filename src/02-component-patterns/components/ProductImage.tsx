@@ -8,9 +8,10 @@ import { ProductContext } from './ProductCard';
 type Props = {
   img?: string;
   className?: string;
+  style?: React.CSSProperties;
 };
 
-export const ProductImage: React.FC<Props> = ({ className, img = '' }) => {
+export const ProductImage: React.FC<Props> = ({ className, img = '', style }) => {
   const { product } = useContext(ProductContext);
 
   let imgToShow: string;
@@ -24,6 +25,11 @@ export const ProductImage: React.FC<Props> = ({ className, img = '' }) => {
   }
 
   return (
-    <img alt="Product image" className={`${styles.productImg} ${className}`} src={imgToShow} />
+    <img
+      alt="Product image"
+      className={`${styles.productImg} ${className}`}
+      src={imgToShow}
+      style={style}
+    />
   );
 };
