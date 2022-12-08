@@ -1,12 +1,12 @@
 {
     "env": {
-      "browser": false,
+      "browser": true,
       "es2021": true,
       "node": true
     },
     "extends": [
-      "plugin:prettier/recommended",
       "plugin:react/recommended",
+      "plugin:prettier/recommended",
       "plugin:react-hooks/recommended"
     ],
     "plugins": ["react", "prettier", "import", "@typescript-eslint"],
