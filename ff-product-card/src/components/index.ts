@@ -7,7 +7,7 @@ export * from './ProductButtons';
 export * from './ProductImage';
 export * from './ProductTitle';
 
-const ProductCard = Object.assign(ProductCardHOC, {
+export const ProductCard = Object.assign(ProductCardHOC, {
   Buttons: ProductButtons,
   Image: ProductImage,
   Title: ProductTitle,
